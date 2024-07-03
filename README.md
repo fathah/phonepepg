@@ -20,21 +20,21 @@ Required Parameters:
 
 
 ```ts
-import PhonepeGateway from "phonepepg";
+import PhonepeGateway from 'phonepepg';
 
 
 const gateway = new PhonepeGateway({
-    merchantId: "MYMERCHANTID",
-    saltKey: "XXXXXXXXXXXXXXXXXXX",
+    merchantId: 'MYMERCHANTID',
+    saltKey: 'XXXXXXXXXXXXXXXXXXX',
     isDev: true // false for production
   });
 
 const resp = await gateway.initPayment({
     amount:100, 
-    transactionId:"TR12345", 
-    userId:"userid", 
-    redirectUrl:"https://mysite.com/payredirect",
-    callbackUrl:"https://mysite.com/callback"
+    transactionId:'TR12345', 
+    userId:'userid', 
+    redirectUrl:'https://mysite.com/payredirect',
+    callbackUrl:'https://mysite.com/callback'
     });
 
 ```
