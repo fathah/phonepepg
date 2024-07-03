@@ -1,6 +1,6 @@
 
 <img 
-src="https://raw.githubusercontent.com/fathah/phonepepg/main/pepg.png" height="50" alt="PhonePe PG"/>
+src="https://raw.githubusercontent.com/fathah/phonepepg/main/pepg.svg" height="50" alt="PhonePe PG"/>
 
 
 # PhonePe Payment Gateway
