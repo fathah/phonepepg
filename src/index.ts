@@ -1,7 +1,7 @@
 import axios from "axios";
 import crypto from "crypto";
 
-export class PhonepeGateway {
+export default class PhonepeGateway {
     private isDev: boolean;
     private merchatId: string;
     private saltKey: string;

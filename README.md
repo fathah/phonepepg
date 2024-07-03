@@ -20,6 +20,9 @@ Required Parameters:
 
 
 ```ts
+import PhonepeGateway from "phonepepg";
+
+
 const gateway = new PhonepeGateway({
     merchantId: "MYMERCHANTID",
     saltKey: "XXXXXXXXXXXXXXXXXXX",
