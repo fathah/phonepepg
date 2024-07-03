@@ -1,0 +1,26 @@
+{
+  "name": "packagename",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "homepage": "ziqx.cc",
+  "repository": {
+    "url": "https://github.com/fathah/npm-package-starter"
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "ziqx",
+    "ziqx auth",
+    "ziqx.js"
+  ],
+  "author": "Ziqx",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
