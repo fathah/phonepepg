@@ -1,11 +1,49 @@
-# NPM Package Starter
+# PhonePe Payment Gateway
 
-# Clone the repo
+For server side working with Node.js or Other Server action supported frameworks like Next.js etc
+
+
+
+# Install the Package
 ```
-git clone https://github.com/fathah/npm-package-starter.git
+npm i phonepepg
 ```
 
-# Install Typescript
+# Usage
+Required Parameters:
+| param | required |
+| ---    | ---   | 
+| merchantId | true |
+| saltKey | true |
+| isDev | false |
+
+
+
+```ts
+const gateway = new PhonepeGateway({
+    merchantId: "MYMERCHANTID",
+    saltKey: "XXXXXXXXXXXXXXXXXXX",
+    isDev: true // false for production
+  });
+
+const resp = await gateway.initPayment({
+    amount:100, 
+    transactionId:"TR12345", 
+    userId:"userid", 
+    redirectUrl:"https://mysite.com/payredirect",
+    callbackUrl:"https://mysite.com/callback"
+    });
+
 ```
-npm i -D typescript tsup
-```
+
+# Contribute
+This package is still in development.
+[Click to Contribute](https://github.com/fathah/phonepepg)
+
+# License
+
+[MIT License](LICENSE)
+
+Copyright (c) 2024 
+
+[ziqx.cc](https://ziqx.cc)
