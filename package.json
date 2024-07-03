@@ -1,24 +1,24 @@
 {
   "name": "phonepepg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "./dist/index.ts",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "homepage": "ziqx.cc",
+  "homepage": "https://github.com/fathah/phonepepg",
   "repository": {
-    "url": "https://github.com/fathah/npm-package-starter"
+    "url": "https://github.com/fathah/phonepepg"
   },
   "scripts": {
     "build": "tsup"
   },
   "keywords": [
-    "ziqx",
-    "ziqx auth",
-    "ziqx.js"
+    "phonepe",
+    "phonepe payment gateway",
+    "phonepe pg"
   ],
   "author": "Ziqx",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.14.9",
     "tsup": "^8.0.2",
