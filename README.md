@@ -1,3 +1,8 @@
+
+<img 
+src="https://raw.githubusercontent.com/fathah/phonepepg/main/pepg.png" height="50" alt="PhonePe PG"/>
+
+
 # PhonePe Payment Gateway
 
 For server side working with Node.js or Other Server action supported frameworks like Next.js etc
