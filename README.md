@@ -36,14 +36,11 @@ Required Parameters:
 ```ts
 import PhonepeGateway from 'phonepepg';
 
-
 const gateway = new PhonepeGateway({
     merchantId: 'MYMERCHANTID',
     saltKey: 'XXXXXXXXXXXXXXXXXXX',
     isDev: true // false for production
   });
-
-
 ```
 
 ### Initialize Payment
