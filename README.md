@@ -1,11 +1,20 @@
 
+Easily integrate PhonePe Payment Gateway
+
+
 <img 
 src="https://raw.githubusercontent.com/fathah/phonepepg/main/pepg.svg" height="50" alt="PhonePe PG"/>
 
 
-# PhonePe Payment Gateway
+### ⚠️ You Need a PhonePe Business account to use this
+If you dont have have an account create one by the following link
+## [Create PhonePe Business Account](https://business.phonepe.com/register?referral-code=RF2405081130016203949336)
 
-For server side working with Node.js or Other Server action supported frameworks like Next.js etc
+
+<br/>
+
+# Getting Started
+This package package can be used for server-side working with Node.js or Other Server ation supported frameworks like Next.js etc
 
 
 
@@ -23,7 +32,7 @@ Required Parameters:
 | isDev | false |
 
 
-
+### Create an Instance of `PhonepeGateway`
 ```ts
 import PhonepeGateway from 'phonepepg';
 
@@ -34,6 +43,11 @@ const gateway = new PhonepeGateway({
     isDev: true // false for production
   });
 
+
+```
+
+### Initialize Payment
+```ts
 const resp = await gateway.initPayment({
     amount:100, 
     transactionId:'TR12345', 
@@ -41,7 +55,11 @@ const resp = await gateway.initPayment({
     redirectUrl:'https://mysite.com/payredirect',
     callbackUrl:'https://mysite.com/callback'
     });
+```
 
+### Get Payment Status
+```ts
+const resp = await gateway.paymentStatus(transactionId);
 ```
 
 # Contribute

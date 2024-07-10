@@ -106,4 +106,38 @@ export default class PhonepeGateway {
             });
         return resp;
     }
+
+     async  paymentStatus(trId: string) {
+        const keyIndex = 1;
+        const string = `/pg/v1/status/${this.merchatId}/${trId}${this.saltKey}`;
+        const sha256 = crypto.createHash("sha256").update(string).digest("hex");
+        const checksum = sha256 + "###" + keyIndex;
+       
+        const url: string = `https://api.phonepe.com/apis/hermes/pg/v1/status/${this.merchatId}/${trId}`;
+      
+        const headers: any = {
+          "Content-Type": "application/json",
+          "X-VERIFY": checksum,
+          "X-MERCHANT-ID": this.merchatId,
+        };
+      
+        const options = {
+          method: "GET",
+          url: url,
+          headers: headers,
+        };
+        const resp: any = await axios
+          .request(options)
+          .then(function (response: any) {
+            return response.data;
+          })
+          .catch(function (error: any) {
+            const data: any = error?.response?.data;
+            return data;
+          });
+        return resp;
+      }
 }
+
+
+
