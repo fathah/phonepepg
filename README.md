@@ -59,6 +59,11 @@ const resp = await gateway.initPayment({
 const resp = await gateway.paymentStatus(transactionId);
 ```
 
+### Get Checksum
+```ts
+const checksome = gateway.getChecksum(transactionId);
+```
+
 # Contribute
 This package is still in development.
 [Click to Contribute](https://github.com/fathah/phonepepg)

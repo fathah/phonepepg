@@ -141,6 +141,14 @@ export default class PhonepeGateway {
           });
         return resp;
       }
+
+      public getChecksum(trId:string){
+        const keyIndex = 1;
+        const string = `/pg/v1/status/${this.merchantId}/${trId}${this.saltKey}`;
+        const sha256 = crypto.createHash("sha256").update(string).digest("hex");
+        const checksum = sha256 + "###" + keyIndex;
+        return checksum;
+      }
 }
 
 
