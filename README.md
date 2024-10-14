@@ -39,6 +39,7 @@ import PhonepeGateway from 'phonepepg';
 const gateway = new PhonepeGateway({
     merchantId: 'MYMERCHANTID',
     saltKey: 'XXXXXXXXXXXXXXXXXXX',
+    saltIndex: 1,
     isDev: true // false for production
   });
 ```

@@ -1,6 +1,6 @@
 {
   "name": "phonepepg",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "",
   "main": "./dist/index.ts",
   "module": "./dist/index.mjs",

@@ -5,6 +5,7 @@ export default class PhonepeGateway {
     private isDev: boolean;
     private merchantId: string;
     private saltKey: string;
+    private saltIndex: number;
 
 
 
@@ -13,19 +14,22 @@ export default class PhonepeGateway {
      * @param p - Configuration options for the payment processor.
      * @param p.merchantId - The unique identifier for the merchant.
      * @param p.saltKey - The salt key used for encryption.
+     * @param [p.saltIndex=1] - The salt index used for encryption.
      * @param [p.isDev=false] - Indicates if the environment is development (default is false).
      */
 
     constructor(p: {
         merchantId: string;
         saltKey: string;
-
+        saltIndex?: number;
         isDev?: boolean;
     }) {
         this.merchantId = p.merchantId;
         this.saltKey = p.saltKey;
 
         this.isDev = p.isDev || false;
+
+        this.saltIndex = p.saltIndex ??1;
 
 
     }
@@ -75,7 +79,7 @@ export default class PhonepeGateway {
         const payload = JSON.stringify(data);
 
         const payloadMain = Buffer.from(payload).toString("base64");
-        const keyIndex = 1;
+        const keyIndex = this.saltIndex;
         const SALT_KEY: string = this.isDev ? DEV_SALT : this.saltKey;
         const string = payloadMain + "/pg/v1/pay" + SALT_KEY;
         const sha256 = crypto.createHash("sha256").update(string).digest("hex");
@@ -95,16 +99,20 @@ export default class PhonepeGateway {
                 request: payloadMain,
             },
         };
-        const resp: any = await axios
+
+        try {
+          const resp: any = await axios
             .request(options)
             .then(function (response: any) {
                 return response.data;
             })
             .catch(function (error: any) {
-                console.error(error);
-                return null;
+            return  {success:false, error:`${error}`}
             });
         return resp;
+        } catch (error) {
+          return {success:false, error:`${error}`}
+        }
     }
 
       /**
@@ -130,7 +138,8 @@ export default class PhonepeGateway {
           url: url,
           headers: headers,
         };
-        const resp: any = await axios
+        try {
+          const resp: any = await axios
           .request(options)
           .then(function (response: any) {
             return response.data;
@@ -140,14 +149,23 @@ export default class PhonepeGateway {
             return data;
           });
         return resp;
+          
+        } catch (error) {
+          return {success:false, error:`${error}`}
+        }
       }
 
       public getChecksum(trId:string){
+       try {
         const keyIndex = 1;
         const string = `/pg/v1/status/${this.merchantId}/${trId}${this.saltKey}`;
         const sha256 = crypto.createHash("sha256").update(string).digest("hex");
         const checksum = sha256 + "###" + keyIndex;
         return checksum;
+       } catch (error) {
+        console.error(error);
+        return "";
+       }
       }
 }
 
